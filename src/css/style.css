@@ -1,27 +1,204 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
 }
 
 ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+	list-style: none;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 body {
-  margin: 0;
-  /* background-image: url(../assets/images/sleep-cat.jpeg); */
+	font-family: sans-serif;
+	background: linear-gradient(rgb(19, 216, 255), rgb(17, 136, 255));
+	margin: 0;
+	/* background-image: url(../assets/images/sleep-cat.jpeg); */
+}
+.containerSecretWord {
+	display: flex;
+}
+h1 {
+	text-align: center;
+	color: whitesmoke;
+}
+.cell {
+	display: flex;
+	border-bottom: 2px solid black;
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	font-size: xx-large;
+	align-items: center;
+	justify-content: center;
+}
+.containerNewWord {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.containerSecretWord {
+	margin-top: 20px;
+	background-color: rgb(186, 246, 255);
+	border-radius: 10px;
+	border: solid rgb(62, 137, 213) 3px;
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.containerError {
+	display: flex;
+	width: 80%;
+	gap: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.errorLetters {
+	height: 60px;
+	background-color: rgb(186, 246, 255);
+	border-radius: 10px;
+	border: solid rgb(62, 137, 213) 3px;
+	box-shadow: inset 1px 1px 5px 2px rgb(77, 130, 255);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	font-size: xx-large;
+	margin-top: 20px;
+	color: rgb(92, 178, 245);
+}
+.containerCounterAttempts {
+	height: 60px;
+	background-color: rgb(186, 246, 255);
+	border-radius: 10px;
+	box-shadow: inset 1px 1px 5px 2px rgb(77, 130, 255);
+	border: solid rgb(62, 137, 213) 3px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	font-size: xx-large;
+	margin-top: 20px;
+	color: rgb(92, 178, 245);
+}
+.toy {
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	height: 200px;
+	position: relative;
+}
+.base {
+	background-color: black;
+	width: 80px;
+	height: 10px;
+	position: absolute;
+	bottom: 0px;
+}
+.palo {
+	position: absolute;
+	bottom: 0px;
+}
+.mastil {
+	background-color: black;
+	width: 10px;
+	height: 150px;
+	position: absolute;
+	bottom: 0px;
+}
+.paloSoga {
+	background-color: black;
+	width: 120px;
+	height: 10px;
+	position: absolute;
+	top: 50px;
+}
+.soga {
+	background-color: black;
+	width: 10px;
+	height: 30px;
+	left: 120px;
+	top: 50px;
+	position: absolute;
+}
+.cabeza {
+	width: 25px;
+	height: 25px;
+	border: 2px solid black;
+	border-radius: 50%;
+	position: absolute;
+	left: 113px;
+	top: 80px;
+}
+.cuerpo {
+	background-color: black;
+	width: 5px;
+	height: 40px;
+	position: absolute;
+	left: 123px;
+	top: 103px;
+}
+.brazos {
+	background-color: black;
+	width: 35px;
+	height: 5px;
+	position: absolute;
+	left: 107px;
+	top: 117px;
+}
+.piernas {
+	position: absolute;
+}
+.pierna1 {
+	background-color: black;
+	width: 25px;
+	height: 5px;
+	position: absolute;
+	left: 120px;
+	top: 146px;
+	transform: rotate(45deg);
+}
+
+.pierna2 {
+	background-color: black;
+	width: 25px;
+	height: 5px;
+	position: absolute;
+	left: 105px;
+	top: 146px;
+	transform: rotate(135deg);
+}
+.hide {
+	display: none;
+}
+.red {
+	color: red;
+}
+.green {
+	color: green;
 }
