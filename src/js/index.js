@@ -1,9 +1,3 @@
-//  input para introducir la letra okkk
-//  mostrar en pantalla la letra que se ha marcado
-//  generar la palabra secreta
-//  mostrar en pantalla cuantas letras tiene
-//  mostrar el numero de intentos restantes
-
 const inputLetterElement = document.getElementById('inputLetter');
 const containerSecretWordElement = document.getElementById(
 	'containerSecretWord'
@@ -16,7 +10,19 @@ const containerCounterAttemptsElement = document.getElementById(
 );
 const toyElement = document.getElementById('toy');
 
-const arraySecretsWords = ['casa', 'perro', 'cerveza', 'paraguas', 'raqueta'];
+const arraySecretsWords = [
+	'casa',
+	'perro',
+	'cerveza',
+	'paraguas',
+	'raqueta',
+	'pijama',
+	'balon',
+	'pizarra',
+	'telefono',
+	'clase',
+	'ordenador'
+];
 let secretWord = '';
 let wordToPrint = [];
 let errorPlayer = '';
@@ -41,8 +47,6 @@ const printCells = () => {
 	containerSecretWordElement.innerHTML = '';
 	secretWord = getSecretWord();
 	wordToPrint.length = secretWord.length;
-	console.log(secretWord);
-	console.log(wordToPrint);
 	inputLetterElement.disabled = false;
 	for (let i = 0; i < secretWord.length; i++) {
 		const cell = document.createElement('span');
@@ -52,16 +56,7 @@ const printCells = () => {
 };
 printCells();
 const restartGame = () => {
-	buttonNewWordElement.disabled = true;
-	inputLetterElement.disabled = false;
-	counterAttemptsElement.textContent = `Intentos Restantes: ${counterAttempts}`;
-	errorLetterElement.innerHTML = '';
-	containerCounterAttemptsElement.classList.remove('red');
-	containerCounterAttemptsElement.classList.remove('green');
-	for (let i = 0; i < 7; i++) {
-		toyElement.children[i].classList.add('hide');
-	}
-	printCells();
+	location.reload();
 };
 
 // comprobar la letra
@@ -69,12 +64,10 @@ const checkLetter = letter => {
 	const secretWordSplit = secretWord.split('');
 	for (let i = 0; i < secretWordSplit.length; i++) {
 		if (letter === secretWordSplit[i]) {
-			console.log(i);
 			wordToPrint.splice(i, 1, letter);
 		}
 	}
 	printPlayerWordOnCells();
-	console.log(wordToPrint);
 };
 // pintar las letrar erroneas
 const printErrorLetters = letter => {
@@ -98,34 +91,28 @@ const printCounterAttempts = () => {
 		errorPlayer = '';
 		inputLetterElement.disabled = true;
 		buttonNewWordElement.disabled = false;
-	} else {
-		counterAttemptsElement.textContent = `Intentos Restantes: ${counterAttempts}`;
 	}
 };
-printCounterAttempts();
 
 const printPlayerWordOnCells = () => {
 	let counter = 0;
 	for (let i = 0; i < wordToPrint.length; i++) {
 		containerSecretWordElement.children[i].textContent = wordToPrint[i];
-		console.log(wordToPrint[i]);
 		if (wordToPrint[i]) {
 			counter++;
 		}
 	}
 	if (counter === wordToPrint.length) {
 		containerCounterAttemptsElement.classList.add('green');
-		counterAttemptsElement.textContent = 'PERDISTE';
-		counterAttempts = 6;
-		wordToPrint = [];
-		errorPlayer = '';
+		counterAttemptsElement.textContent = 'GANASTE';
 		inputLetterElement.disabled = true;
 		buttonNewWordElement.disabled = false;
+	} else if (counterAttempts >= 0) {
+		counterAttemptsElement.textContent = `Intentos Restantes: ${counterAttempts}`;
 	}
-	console.log(counter);
 };
+printPlayerWordOnCells();
 const printToy = () => {
-	console.log(counterAttempts);
 	toyElement.children[counterAttempts].classList.remove('hide');
 };
 
